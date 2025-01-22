@@ -39,7 +39,7 @@
 //  6)- 
 
  const concatStringhe =(string1: string, string2: string): number => {
-    return (string1 + string2).lenght
+    return (string1 + string2).length
  }
 
  //7)-
@@ -75,9 +75,11 @@ const tuple: [string, string, string, number, number] =[
 
 // 12)-
 
-//interface è usata per definire gli oggetti è puo essere estesa o combinata,
-//  invece type è piu flessibile, usato per unionituple, 
-// e le altre strutture.
+// Con type è possibile definire tipi personalizzati, utilizzabili per 
+// variabili e combinabili con tipi primitivi, consentendo l'uso di metodi
+//  e proprietà ad essi associati.
+//  Una interface, invece, rappresenta una struttura che descrive la forma 
+// di un oggetto, specificandone proprietà richieste e opzionali.
 
 // 13)-
 interface HumanBeing {
@@ -92,6 +94,80 @@ interface Utente{
     phone?: number;
 }
 // 15)-
+
+interface Student{
+    name: string
+    voto: number
+}
+ const Mary: Student ={
+    name: 'Mary',
+    voto: 8,
+ }
+ const Luca: Student ={
+    name: 'Luca',
+    voto: 9,
+ }
+ const Mario: Student ={
+    name: 'Mario',
+    voto: 10,
+ }
+
+  const studentsArray: Student[] = [Mary, Luca, Mario]
+
+// 16)- e 17)-
+
+interface Veicuolo {
+    marca: string;
+    modello: string;
+    anno: number;
+    accendi(): undefined;
+    spegni (): undefined;
+}
+
+interface Auto extends Veicuolo{
+    numeroPorte: number;
+    tipoCarburante: string;
+    guidaAutomatico: boolean;
+
+}
+
+ const miaAuto: Auto ={
+    marca: "Tesla",
+    modello:"Model S",
+    anno: 2022,
+    accendi(){
+
+        console.log("l'auto è accesa!");
+    }, 
+    spegni() {
+        console.log("l'auto è spenta!");
+    },
+
+    numeroPorte: 4,
+    tipoCarburante: "elettrica",
+    guidaAutomatico: true
+ };
+  
+// 18)-
+
+// Generics in TypeScript consentono di definire tipi parametrici, che vengono passati come
+//  argomenti a funzioni o interfacce. Questo permette di rendere il codice più flessibile e
+//  riutilizzabile, adattandosi a più tipi di dati senza conoscerli in anticipo.
+//es:
+interface Box<T> {
+    value: T;
+  }
+  
+  const numberBox: Box<number> = { value: 42 };
+  const stringBox: Box<string> = { value: "Hello !" };
+
+
+// 19)-
+// 20)-
+
+
+
+
 
 
 
